@@ -28,7 +28,7 @@ const App = props => {
   const gameIsOver = isGameOver(game, wrongLetters, wordWasGuessed);
 
   const gameOver = gameIsOver ? (
-    <GameOver chosenWord={game.chosenWord} wordGuesed={wordWasGuessed} />
+    <GameOver chosenWord={game.chosenWord} wordGuessed={wordWasGuessed} />
   ) : null;
 
   return (

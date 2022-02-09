@@ -40,10 +40,13 @@ class AppContainer extends React.Component {
     newState.currentChosenLetter = event.target.value;
     this.setState(newState);
   };
-
+  
   guessLetterHandler = event => {
     const inputGiven = this.state.currentChosenLetter.length > 0;
-    if (inputGiven) {
+    const newLetter = !this.state.guessedLetters.includes(
+      this.state.currentChosenLetter
+    );
+    if (inputGiven && newLetter) {
       const newGuessedLetters = [...this.state.guessedLetters];
       newGuessedLetters.push(this.state.currentChosenLetter);
       this.setState({
@@ -57,7 +60,7 @@ class AppContainer extends React.Component {
   componentDidMount = () => {
     this.restartGameHandler();
   };
-
+  
   render() {
     return (
       <App
